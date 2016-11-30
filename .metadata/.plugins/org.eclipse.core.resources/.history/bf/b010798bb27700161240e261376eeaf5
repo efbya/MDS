@@ -1,0 +1,43 @@
+package mds;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+@EnableOAuth2Sso
+public class MDSGateway {
+	
+	private String format="{\n" + 
+			"    \"order\": {\n" + 
+			"                    \"ID\": %s,\n" +			
+			"        \"title\": \"example order\",\n" + 
+			"		\"order details\": {\n" + 
+			"            \"title\": \"S\",\n" + 
+			"			\"Item list\": {\n" + 
+			"                \"Item entry\": {\n" +  
+			"					\"SortAs\": \"SGML\",\n" + 
+			"					\"PurchaseDate\": \"8/12/2016\",\n" + 
+			"                    },\n" + 
+			"                }\n" + 
+			"            }\n" + 
+			"        }\n" + 
+			"    }\n" + 
+			"";
+	
+    @RequestMapping("/OrderDetails")
+    public String getOrderDetails(@RequestParam(value="orderId", defaultValue="1") String orderId) {
+        return String.format(format, orderId);
+    }
+
+
+	public static void main(String[] args) {
+		SpringApplication.run(MDSGateway.class, args);
+	}
+
+}

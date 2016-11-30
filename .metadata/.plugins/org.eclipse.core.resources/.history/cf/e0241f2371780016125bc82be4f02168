@@ -1,0 +1,12 @@
+     
+server:
+    port: 8010
+    
+zuul:
+  routes:
+    order:
+      url: http://localhost:8090      
+      #url: http://ec2-54-224-180-72.compute-1.amazonaws.com:8080/OrderDetails
+ribbon:
+  eureka:
+    enabled: false      

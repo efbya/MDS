@@ -1,0 +1,51 @@
+package hello;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+public class Application {
+	
+	private String format="{\n" + 
+			"    \"order\": {\n" + 
+			"        \"title\": \"example order\",\n" + 
+			"		\"order details\": {\n" + 
+			"            \"title\": \"S\",\n" + 
+			"			\"GlossList\": {\n" + 
+			"                \"GlossEntry\": {\n" + 
+			"                    \"ID\": %s,\n" + 
+			"					\"SortAs\": \"SGML\",\n" + 
+			"					\"GlossTerm\": \"Standard Generalized Markup Language\",\n" + 
+			"					\"Acronym\": \"SGML\",\n" + 
+			"					\"Abbrev\": \"ISO 8879:1986\",\n" + 
+			"					\"GlossDef\": {\n" + 
+			"                        \"para\": \"A meta-markup language, used to create markup languages such as DocBook.\",\n" + 
+			"						\"GlossSeeAlso\": [\"GML\", \"XML\"]\n" + 
+			"                    },\n" + 
+			"					\"GlossSee\": \"markup\"\n" + 
+			"                }\n" + 
+			"            }\n" + 
+			"        }\n" + 
+			"    }\n" + 
+			"}\n" + 
+			"";
+	
+
+	@RequestMapping("/")
+	public String home() {
+		return "Customer Data";
+	}
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+    @RequestMapping("/OrderDetails")
+    public String greeting(@RequestParam(value="orderId", defaultValue="1") String orderId) {
+        return String.format(format, orderId);
+    }
+}

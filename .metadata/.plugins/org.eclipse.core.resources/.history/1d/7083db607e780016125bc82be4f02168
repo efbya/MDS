@@ -1,0 +1,26 @@
+security:
+  oauth2:
+    client:
+      #clientId: 341057896231710
+      #clientSecret: 3d3b26d30850d279c1055daf0655c9c1
+      clientId: 233668646673605
+      clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+      accessTokenUri: https://graph.facebook.com/oauth/access_token
+      userAuthorizationUri: https://www.facebook.com/dialog/oauth
+      tokenName: oauth_token
+      authenticationScheme: query
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://graph.facebook.com/me
+      
+server:
+    port: 8080
+    
+zuul:
+  routes:
+    order:
+      url: http://localhost:8090      
+      #url: http://ec2-54-224-180-72.compute-1.amazonaws.com:8080/OrderDetails
+ribbon:
+  eureka:
+    enabled: false      

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;mds.MDSGateway&apos; to &apos;ServiceRegistry&apos;&#x0A;- Original project: &apos;EurekaRegistry&apos;&#x0A;- Original element: &apos;mds.MDSGateway&apos;&#x0A;- Renamed element: &apos;mds.ServiceRegistry&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MDSGateway&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;mds{MDSGateway.java[MDSGateway" matchStrategy="1" name="ServiceRegistry" qualified="false" references="true" similarDeclarations="false" stamp="1473633918225" textual="false" version="1.0"/>
+</session>

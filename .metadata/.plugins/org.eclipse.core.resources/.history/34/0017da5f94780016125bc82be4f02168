@@ -1,0 +1,11 @@
+
+logging:
+  level: 
+    root: DEBUG
+  
+server:
+    port: 8091
+spring:
+  application:
+    name: profile
+        
